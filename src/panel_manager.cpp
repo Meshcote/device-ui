@@ -20,35 +20,10 @@ lv_obj_t *PanelManager::map_panel = nullptr;
 lv_obj_t *PanelManager::settings_panel = nullptr;
 lv_obj_t *PanelManager::modal_dialog = nullptr;
 
-lv_group_t *PanelManager::nav_buttons_group = nullptr;
-lv_group_t *PanelManager::nodes_group = nullptr;
-lv_group_t *PanelManager::messages_group = nullptr;
-lv_group_t *PanelManager::settings_group = nullptr;
-lv_group_t *PanelManager::modal_group = nullptr;
-
 void PanelManager::init(lv_obj_t *container)
 {
     main_container = container;
     current_panel = PANEL_HOME;
-
-    // Crear grupos de navegación
-    nav_buttons_group = lv_group_create();
-    nodes_group = lv_group_create();
-    messages_group = lv_group_create();
-    settings_group = lv_group_create();
-    modal_group = lv_group_create();
-
-    // El grupo de navegación es el activo por defecto
-    lv_group_set_default(nav_buttons_group);
-
-    // Configurar wrap (ciclo) para cada grupo
-    lv_group_set_wrap(nav_buttons_group, true);
-    lv_group_set_wrap(nodes_group, true);
-    lv_group_set_wrap(messages_group, true);
-    lv_group_set_wrap(settings_group, true);
-    lv_group_set_wrap(modal_group, false); // Modal no hace wrap
-
-    Serial.println("[PanelMgr] Inicializado con grupos de navegación separados");
 }
 
 void PanelManager::registerHomePanel(lv_obj_t *panel)
@@ -103,14 +78,14 @@ void PanelManager::showPanel(PanelID panel_id)
             lv_obj_set_style_text_color(title, lv_color_hex(0x67ea94), 0);
             lv_obj_set_style_text_font(title, &lv_font_montserrat_14, 0);
 
-            // Nodo 1 - Este dispositivo (CONVERTIR A BOTÓN)
-            lv_obj_t *node1 = lv_btn_create(nodes_panel);
+            // Nodo 1 - Este dispositivo
+            lv_obj_t *node1 = lv_obj_create(nodes_panel);
             lv_obj_set_size(node1, 140, 45);
             lv_obj_set_style_bg_color(node1, lv_color_hex(0x1a1a1a), 0);
             lv_obj_set_style_border_color(node1, lv_color_hex(0x67ea94), 0);
             lv_obj_set_style_border_width(node1, 1, 0);
             lv_obj_set_style_radius(node1, 5, 0);
-            lv_group_add_obj(nodes_group, node1); // AGREGAR AL GRUPO
+            lv_obj_clear_flag(node1, LV_OBJ_FLAG_SCROLLABLE);
 
             lv_obj_t *name1 = lv_label_create(node1);
             lv_label_set_text(name1, "!1234\nEste Nodo");
@@ -123,14 +98,14 @@ void PanelManager::showPanel(PanelID panel_id)
             lv_obj_set_style_text_color(info1, lv_color_hex(0x888888), 0);
             lv_obj_align(info1, LV_ALIGN_TOP_RIGHT, -5, 5);
 
-            // Nodo 2 - Ejemplo offline (CONVERTIR A BOTÓN)
-            lv_obj_t *node2 = lv_btn_create(nodes_panel);
+            // Nodo 2 - Ejemplo offline
+            lv_obj_t *node2 = lv_obj_create(nodes_panel);
             lv_obj_set_size(node2, 140, 45);
             lv_obj_set_style_bg_color(node2, lv_color_hex(0x1a1a1a), 0);
             lv_obj_set_style_border_color(node2, lv_color_hex(0x444444), 0);
             lv_obj_set_style_border_width(node2, 1, 0);
             lv_obj_set_style_radius(node2, 5, 0);
-            lv_group_add_obj(nodes_group, node2); // AGREGAR AL GRUPO
+            lv_obj_clear_flag(node2, LV_OBJ_FLAG_SCROLLABLE);
 
             lv_obj_t *name2 = lv_label_create(node2);
             lv_label_set_text(name2, "!5678\nOtro Nodo");
@@ -166,13 +141,13 @@ void PanelManager::showPanel(PanelID panel_id)
             lv_obj_set_style_text_color(title, lv_color_hex(0x67ea94), 0);
             lv_obj_set_style_text_font(title, &lv_font_montserrat_14, 0);
 
-            // Mensaje 1 (CONVERTIR A BOTÓN)
-            lv_obj_t *msg1 = lv_btn_create(messages_panel);
+            // Mensaje 1
+            lv_obj_t *msg1 = lv_obj_create(messages_panel);
             lv_obj_set_size(msg1, 140, 50);
             lv_obj_set_style_bg_color(msg1, lv_color_hex(0x1a3a1a), 0);
             lv_obj_set_style_border_width(msg1, 0, 0);
             lv_obj_set_style_radius(msg1, 5, 0);
-            lv_group_add_obj(messages_group, msg1); // AGREGAR AL GRUPO
+            lv_obj_clear_flag(msg1, LV_OBJ_FLAG_SCROLLABLE);
 
             lv_obj_t *from1 = lv_label_create(msg1);
             lv_label_set_text(from1, "!1234 12:34");
@@ -270,7 +245,6 @@ void PanelManager::showPanel(PanelID panel_id)
                 lv_obj_set_style_bg_color(btn, lv_color_hex(0x1a1a1a), 0);
                 lv_obj_set_style_border_width(btn, 1, 0);
                 lv_obj_set_style_border_color(btn, lv_color_hex(0x444444), 0);
-                lv_group_add_obj(settings_group, btn); // AGREGAR AL GRUPO
 
                 lv_obj_t *label = lv_label_create(btn);
                 char text[64];
@@ -291,60 +265,12 @@ void PanelManager::showPanel(PanelID panel_id)
     }
 
     current_panel = panel_id;
-
-    // Cambiar el grupo activo según el panel
-    switch (panel_id) {
-    case PANEL_NODES:
-        lv_group_set_default(nodes_group);
-        Serial.println("[PanelMgr] Grupo activo: NODES");
-        break;
-    case PANEL_MESSAGES:
-        lv_group_set_default(messages_group);
-        Serial.println("[PanelMgr] Grupo activo: MESSAGES");
-        break;
-    case PANEL_SETTINGS:
-        lv_group_set_default(settings_group);
-        Serial.println("[PanelMgr] Grupo activo: SETTINGS");
-        break;
-    default:
-        lv_group_set_default(nav_buttons_group);
-        Serial.println("[PanelMgr] Grupo activo: NAV_BUTTONS");
-        break;
-    }
-
     lv_refr_now(NULL);
 }
 
 PanelID PanelManager::getCurrentPanel()
 {
     return current_panel;
-}
-
-lv_group_t *PanelManager::getNavButtonsGroup()
-{
-    return nav_buttons_group;
-}
-
-lv_group_t *PanelManager::getCurrentPanelGroup()
-{
-    switch (current_panel) {
-    case PANEL_NODES:
-        return nodes_group;
-    case PANEL_MESSAGES:
-        return messages_group;
-    case PANEL_SETTINGS:
-        return settings_group;
-    default:
-        return nav_buttons_group;
-    }
-}
-
-void PanelManager::focusNavButtons()
-{
-    Serial.println("[PanelMgr] Volviendo al foco de iconos de navegación");
-    lv_group_set_default(nav_buttons_group);
-    lv_group_focus_freeze(nav_buttons_group, false);
-    lv_refr_now(NULL);
 }
 
 // Callback para cerrar modal (ESC o botón Cancelar)
@@ -457,7 +383,6 @@ void PanelManager::showSettingEditor(const char *title, const char *currentValue
     lv_obj_set_size(btn_cancel, 60, 30);
     lv_obj_align(btn_cancel, LV_ALIGN_BOTTOM_LEFT, 10, -10);
     lv_obj_add_event_cb(btn_cancel, modal_close_cb, LV_EVENT_CLICKED, NULL);
-    lv_group_add_obj(modal_group, btn_cancel); // AGREGAR AL GRUPO
 
     lv_obj_t *btn_label = lv_label_create(btn_cancel);
     lv_label_set_text(btn_label, "Salir");
@@ -468,16 +393,11 @@ void PanelManager::showSettingEditor(const char *title, const char *currentValue
     lv_obj_set_size(btn_ok, 60, 30);
     lv_obj_align(btn_ok, LV_ALIGN_BOTTOM_RIGHT, -10, -10);
     lv_obj_set_style_bg_color(btn_ok, lv_color_hex(0x4db270), 0);
-    lv_obj_add_event_cb(btn_ok, modal_close_cb, LV_EVENT_CLICKED, NULL); // Por ahora solo cierra
-    lv_group_add_obj(modal_group, btn_ok);                               // AGREGAR AL GRUPO
+    // TODO: Callback para guardar valor
 
     btn_label = lv_label_create(btn_ok);
     lv_label_set_text(btn_label, "OK");
     lv_obj_center(btn_label);
-
-    // Activar el grupo del modal
-    lv_group_set_default(modal_group);
-    Serial.println("[PanelMgr] Grupo activo: MODAL");
 
     lv_refr_now(NULL);
 }
@@ -488,11 +408,6 @@ void PanelManager::hideSettingEditor()
         Serial.println("[PanelMgr] Cerrando modal dialog");
         lv_obj_del(modal_dialog);
         modal_dialog = nullptr;
-
-        // Volver al grupo del panel settings
-        lv_group_set_default(settings_group);
-        Serial.println("[PanelMgr] Grupo activo: SETTINGS (volviendo de modal)");
-
         lv_refr_now(NULL);
     }
 }

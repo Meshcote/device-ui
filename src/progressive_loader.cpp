@@ -171,11 +171,11 @@ extern "C" bool create_main_screen_progressive()
     uint32_t final_heap = ESP.getFreeHeap();
     Serial.printf("[ProgLoader] Carga completa - Heap final: %d bytes (usados: %d)\n", final_heap, initial_heap - final_heap);
 
-    // Obtener grupo de navegación de PanelManager (iconos principales)
-    lv_group_t *nav_group = PanelManager::getNavButtonsGroup();
-    Serial.printf("[ProgLoader DEBUG] PanelManager::getNavButtonsGroup() = 0x%p\n", nav_group);
+    // Obtener grupo de navegación del CardKB (si existe)
+    lv_group_t *kb_group = InputDriver::getInputGroup();
+    Serial.printf("[ProgLoader DEBUG] InputDriver::getInputGroup() = 0x%p\n", kb_group);
 
-    if (nav_group) {
+    if (kb_group) {
         Serial.println("[ProgLoader] Configurando navegación por teclado...");
 
         // Hacer los botones navegables (clickables)
@@ -204,18 +204,18 @@ extern "C" bool create_main_screen_progressive()
         lv_obj_add_style(map_btn, &style_focused, LV_STATE_FOCUSED);
         lv_obj_add_style(settings_btn, &style_focused, LV_STATE_FOCUSED);
 
-        // Agregar botones al grupo de navegación (iconos)
-        lv_group_add_obj(nav_group, home_btn);
-        lv_group_add_obj(nav_group, nodes_btn);
-        lv_group_add_obj(nav_group, msg_btn);
-        lv_group_add_obj(nav_group, map_btn);
-        lv_group_add_obj(nav_group, settings_btn);
+        // Agregar botones al grupo para navegación
+        lv_group_add_obj(kb_group, home_btn);
+        lv_group_add_obj(kb_group, nodes_btn);
+        lv_group_add_obj(kb_group, msg_btn);
+        lv_group_add_obj(kb_group, map_btn);
+        lv_group_add_obj(kb_group, settings_btn);
 
-        Serial.printf("[ProgLoader DEBUG] Grupo NAV tiene %d objetos\n", lv_group_get_obj_count(nav_group));
+        Serial.printf("[ProgLoader DEBUG] Grupo tiene %d objetos\n", lv_group_get_obj_count(kb_group));
 
         // Focus en el primer botón (Home)
         lv_group_focus_obj(home_btn);
-        lv_obj_t *focused = lv_group_get_focused(nav_group);
+        lv_obj_t *focused = lv_group_get_focused(kb_group);
         Serial.printf("[ProgLoader DEBUG] Objeto con focus: 0x%p (esperado: 0x%p)\n", focused, home_btn);
 
         Serial.println("[ProgLoader] ✓ 5 botones agregados al grupo de navegación");

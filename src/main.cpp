@@ -94,8 +94,8 @@ void loop()
             if (key != 0x00 && key != 0xE0) {
                 Serial.printf("[CardKB] Tecla: 0x%02X\n", key);
 
-                // Obtener el grupo activo actual (puede ser nav, panel o modal)
-                lv_group_t *grp = lv_group_get_default();
+                // Obtener grupo LVGL
+                lv_group_t *grp = InputDriver::getInputGroup();
                 if (grp) {
                     // Simular navegación manual
                     if (key == 0xB6) { // DOWN
@@ -116,10 +116,9 @@ void loop()
                             lv_obj_send_event(focused, LV_EVENT_CLICKED, NULL);
                             Serial.println("[NAV] → ENTER presionado");
                         }
-                    } else if (key == 0x1B) {              // ESC - volver a iconos principales
-                        PanelManager::hideSettingEditor(); // Cerrar modal si está abierto
-                        PanelManager::focusNavButtons();   // Volver al foco de iconos
-                        Serial.println("[NAV] → ESC presionado (volver a iconos)");
+                    } else if (key == 0x1B) { // ESC - cerrar modal si está abierto
+                        PanelManager::hideSettingEditor();
+                        Serial.println("[NAV] → ESC presionado");
                     }
                 }
             }

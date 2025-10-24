@@ -17,11 +17,6 @@ class PanelManager
     static void showSettingEditor(const char *title, const char *currentValue, int settingId);
     static void hideSettingEditor();
 
-    // Grupos de navegación
-    static lv_group_t *getNavButtonsGroup();   // Grupo de iconos de navegación
-    static lv_group_t *getCurrentPanelGroup(); // Grupo del panel activo
-    static void focusNavButtons();             // Volver al foco de iconos (ESC)
-
   private:
     static PanelID current_panel;
     static lv_obj_t *main_container;
@@ -31,13 +26,6 @@ class PanelManager
     static lv_obj_t *map_panel;
     static lv_obj_t *settings_panel;
     static lv_obj_t *modal_dialog;
-
-    // Grupos de navegación
-    static lv_group_t *nav_buttons_group; // Iconos principales
-    static lv_group_t *nodes_group;
-    static lv_group_t *messages_group;
-    static lv_group_t *settings_group;
-    static lv_group_t *modal_group;
 };
 
 #endif // PANEL_MANAGER_H
