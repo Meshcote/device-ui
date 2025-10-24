@@ -33,10 +33,19 @@ bool I2CKeyboardInputDriver::registerI2CKeyboard(I2CKeyboardInputDriver *driver,
 
 void I2CKeyboardInputDriver::keyboard_read(lv_indev_t *indev, lv_indev_data_t *data)
 {
+    static uint32_t call_count = 0;
+    call_count++;
+
+    // Debug cada 1000 llamadas (no saturar Serial)
+    if (call_count % 1000 == 0) {
+        Serial.printf("[KBD_READ] Llamado %lu veces\n", call_count);
+    }
+
     // Read from all registered keyboards
     for (auto &keyboardDef : i2cKeyboardList) {
         keyboardDef->driver->readKeyboard(keyboardDef->address, indev, data);
         if (data->state == LV_INDEV_STATE_PRESSED) {
+            Serial.printf("[KBD_READ] ¡TECLA DETECTADA! key=0x%02X\n", data->key);
             // If any keyboard reports a key press, we stop reading further
             return;
         }

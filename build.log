@@ -1,0 +1,196 @@
+Processing heltec-lora-wifi-v3-ili9225 (platform: espressif32; board: heltec_wifi_lora_32_V3; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/heltec_wifi_lora_32_V3.html
+PLATFORM: Espressif 32 (6.12.0) > Heltec WiFi LoRa 32 (V3)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-builtin, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b 
+ - tool-esptoolpy @ 2.40900.250804 (4.9.0) 
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 34 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- lvgl @ 9.4.0
+|-- SPI @ 2.0.0
+Building in release mode
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/images.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/images.h:4,
+                 from generated/ui_320x240/images.c:1:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/screens.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/screens.h:4,
+                 from generated/ui_320x240/screens.c:1:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/styles.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/styles.h:4,
+                 from generated/ui_320x240/styles.c:1:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+generated/ui_320x240/screens.c: In function 'create_screen_main_screen':
+generated/ui_320x240/screens.c:603:65: warning: trigraph ??' ignored, use -trigraphs to enable [-Wtrigraphs]
+                             lv_label_set_text(obj, "N???° ??.????'\nW???° ??.????'");
+                                                                  
+generated/ui_320x240/screens.c:603:82: warning: trigraph ??' ignored, use -trigraphs to enable [-Wtrigraphs]
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui.h:4,
+                 from generated/ui_320x240/ui.c:1:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_font_montserrat_12.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_font_montserrat_12.c:16:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_font_montserrat_14.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_font_montserrat_14.c:16:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_font_montserrat_16.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_font_montserrat_16.c:16:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_font_montserrat_20.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_font_montserrat_20.c:16:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_bolt_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_bolt_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_empty_image.c.o
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_empty_warn_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_empty_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_empty_warn_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_full_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_full_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_low_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_low_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_mid_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_mid_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_plug_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_battery_plug_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_slash_image.c.o
+generated/ui_320x240/ui_image_battery_slash_image.c:7:10: fatal error: lvgl/lvgl.h: No such file or directory
+ #include "lvgl/lvgl.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+*** [.pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_battery_slash_image.c.o] Error 1
+Compiling .pio/build/heltec-lora-wifi-v3-ili9225/generated/ui_320x240/ui_image_bluetooth_on_image.c.o
+In file included from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_kconfig.h:15,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_conf_internal.h:38,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/src/lv_init.h:16,
+                 from .pio/libdeps/heltec-lora-wifi-v3-ili9225/lvgl/lvgl.h:21,
+                 from generated/ui_320x240/ui_image_bluetooth_on_image.c:10:
+/home/vscode/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h:306: warning: "CONFIG_ESP32S3_SPIRAM_SUPPORT" redefined
+ #define CONFIG_ESP32S3_SPIRAM_SUPPORT 1
+ 
+<command-line>: note: this is the location of the previous definition
+========================== [FAILED] Took 8.29 seconds ==========================
